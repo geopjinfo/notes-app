@@ -18,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class NotesViewModel @Inject constructor(private val notesUseCase: NoteUseCases) : ViewModel() {
     private val _state = mutableStateOf(NotesState())
-    private val state: State<NotesState> = _state
+    val state: State<NotesState> = _state
+
     init {
         getNotes(NoteOrder.Date(OrderType.Descending))
     }
